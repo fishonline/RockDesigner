@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FC77F806-54BF-448E-AE3B-B0B8B604DBCB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rock.Dyn.Comm</RootNamespace>
+    <AssemblyName>Rock.Dyn.Comm</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataReceived.cs" />
+    <Compile Include="DynClassLoader.cs" />
+    <Compile Include="DynSerialize.cs" />
+    <Compile Include="AsyncRpcClient.cs" />
+    <Compile Include="Exception\FtpException.cs" />
+    <Compile Include="Exception\RpcException.cs" />
+    <Compile Include="FtpClient.cs" />
+    <Compile Include="FtpServer.cs" />
+    <Compile Include="IClientPool.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RpcClient.cs" />
+    <Compile Include="RpcClientPool.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RpcServer.cs" />
+    <Compile Include="VirtuaIP.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RockContext.cs" />
+    <Compile Include="RockRouter.cs" />
+    <Compile Include="RouterDealer.cs" />
+    <Compile Include="RockWorker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Rock.Dyn.Core\Rock.Dyn.Core.csproj">
+      <Project>{d23190ee-f047-4820-bc43-99a2087ebd49}</Project>
+      <Name>Rock.Dyn.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rock.Dyn.Msg\Rock.Dyn.Msg.csproj">
+      <Project>{499eb63c-d74c-47e8-ae48-a2fc94538e9d}</Project>
+      <Name>Rock.Dyn.Msg</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroMQ\ZeroMQ.csproj">
+      <Project>{6ffd872f-a4a4-4efa-9b4d-4342ba6cf250}</Project>
+      <Name>ZeroMQ</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rock.Dyn.Comm.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

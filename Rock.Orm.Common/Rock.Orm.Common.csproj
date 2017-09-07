@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B8F80BEB-93A6-4966-842F-92E38E11082C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rock.Orm.Common</RootNamespace>
+    <AssemblyName>Rock.Orm.Common</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DBC_CHECK_PRECONDITION</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Rock.Orm.Common.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caching\Cache.cs" />
+    <Compile Include="CodeGen\StaCodeGenHelper.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Common\CommonUtils.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Common\SerializationManager.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\CompressionManager.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\Common\CommandLineParser.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\Common\CRC.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\Common\InBuffer.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\Common\OutBuffer.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\Compress\LzmaAlone\SevenZipHelper.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\Compress\LZMA\LzmaBase.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\Compress\LZMA\LzmaDecoder.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\Compress\LZMA\LzmaEncoder.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\Compress\LZ\IMatchFinder.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\Compress\LZ\LzBinTree.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\Compress\LZ\LzInWindow.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\Compress\LZ\LzOutWindow.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\Compress\RangeCoder\RangeCoder.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\Compress\RangeCoder\RangeCoderBit.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\Compress\RangeCoder\RangeCoderBitTree.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Compression\SevenZip\ICoder.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Cryptography\CryptographyManager.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.DesignByContract\DesignByContract.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CommonLibraries\CN.Teddy.Reflection\Emit\DynamicMethodProxyFactory.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Reflection\Emit\EmitUtils.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.Reflection\ReflectionUtils.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.SqlQuery\ColumnFormatter.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.SqlQuery\ExpressionClip.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CommonLibraries\CN.Teddy.SqlQuery\ExpressionFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CommonLibraries\CN.Teddy.SqlQuery\FromClip.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.SqlQuery\IExpression.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.SqlQuery\QueryOperators.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.SqlQuery\SqlQueryUtils.cs" />
+    <Compile Include="CommonLibraries\CN.Teddy.SqlQuery\WhereClip.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CompressionManager.cs" />
+    <Compile Include="CryptographyManager.cs" />
+    <Compile Include="DesignByContract.cs" />
+    <Compile Include="DynEntity\DynAttribute.cs" />
+    <Compile Include="DynEntity\DynEntity.cs" />
+    <Compile Include="DynEntity\DynEntityArrayList.cs" />
+    <Compile Include="DynEntity\DynPropertyConfiguration.cs" />
+    <Compile Include="DynEntity\DynPropertyConfigurationCollection.cs" />
+    <Compile Include="DynEntity\DynEntityType.cs" />
+    <Compile Include="DynEntity\DynEntityTypeManager.cs" />
+    <Compile Include="DynEntityTypeMetaDataCoordinator.cs" />
+    <Compile Include="DynDesign\DynQueryDescriber.cs" />
+    <Compile Include="DynDesign\OtherDynAttributes.cs" />
+    <Compile Include="DynDesign\QueryDynAttributes.cs" />
+    <Compile Include="CodeGen\DynCodeGenHelper.cs" />
+    <Compile Include="StaDesign\Entity.cs" />
+    <Compile Include="StaDesign\OtherAttributes.cs" />
+    <Compile Include="StaDesign\QueryAttributes.cs" />
+    <Compile Include="StaDesign\QueryDescriber.cs" />
+    <Compile Include="StaEntity\EntityArrayList.cs" />
+    <Compile Include="StaEntity\EntityQuery.cs" />
+    <Compile Include="EnumDescriptionAttribute.cs" />
+    <Compile Include="Exceptions.cs" />
+    <Compile Include="StaEntity\Entity.cs" />
+    <Compile Include="ILogable.cs" />
+    <Compile Include="MetaDataManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerializationManager.cs" />
+    <Compile Include="Types\Tree.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DynDiagram.cd" />
+    <None Include="实体相关.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

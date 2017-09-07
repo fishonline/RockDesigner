@@ -1,0 +1,36 @@
+﻿<Window x:Class="Rock.DesignerModule.Views.ApplicationOpenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:Event="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:cmd="clr-namespace:Rock.DesignerModule.Models" 
+        Title="打开应用程序" Height="450" Width="600" ResizeMode="NoResize" 
+         WindowStartupLocation="CenterScreen" Icon="../Images/Application.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <telerik:RadGridView x:Name="radGridView"  ShowGroupPanel="False" ItemsSource="{Binding ApplicationSource}" SelectedItem="{Binding SelectedApplication, Mode=TwoWay}"     
+                             FrozenColumnsSplitterVisibility="Collapsed" IsReadOnly="True" cmd:RowActivated.Command="{Binding RowActivatedCommand}"
+                             AutoGenerateColumns="False" Margin="5" RowActivated="RadGridView_RowActivated"
+                             RowIndicatorVisibility="Collapsed" IsFilteringAllowed="False" >
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding ApplicationID}" Header="ID" IsSortable="False" MinWidth="80" IsVisible="False"/>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding ApplicationName}" Header="名称" IsSortable="False" MinWidth="80"/>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Description}" Header="说明"  IsSortable="False" MinWidth="240"/>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Version}" Header="版本"  Width="*"/>
+            </telerik:RadGridView.Columns>            
+        </telerik:RadGridView>
+
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Right" Margin="5" >
+            <telerik:RadButton Content="确 认" x:Name="btnOK" Command="{Binding BtnOKCommand}" Click="btnOk_Click"  Margin="5 0" MinWidth="60"  MinHeight="30"
+                               IsEnabled="{Binding ButtonOkEnabled}"></telerik:RadButton>
+            <telerik:RadButton Content="取 消" x:Name="btnCancel" Click="btnCancel_Click"    Margin="5 0" MinWidth="60" MinHeight="30"
+                              ></telerik:RadButton>
+
+        </WrapPanel>
+    </Grid>
+
+</Window>
+

@@ -1,0 +1,166 @@
+﻿<Window x:Class="Rock.DesignerModule.Views.RelationClassView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:Event="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        Title="RelationClassView" Height="480" Width="600"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <HierarchicalDataTemplate x:Key="ComboxTemplate" >
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock  Text="{Binding NamespaceName}"  Margin="1"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <Style x:Key="TextBlockWrap" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <GroupBox Grid.Row="0" Margin="3">
+            <GroupBox.Header>
+                <TextBlock Style="{StaticResource TextBlockWrap}" Text="类信息"></TextBlock>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition  Height="8*"/>
+                    <RowDefinition  Height="8*"/>
+                    <RowDefinition  Height="4*"/>
+                </Grid.RowDefinitions>
+                <GroupBox Margin="3" Grid.Row="0" Grid.Column="0">
+                    <Grid Margin="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>                            
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Style="{StaticResource TextBlockWrap}"  Margin="24,3,3,3" Text="名称" VerticalAlignment="Center" Grid.Column="0"/>
+                        <TextBox Margin="3" Name="txtClassName" IsReadOnly="{Binding IsClassNameReadonly}" Grid.Column="1" MaxLength="200">
+                            <TextBox.Text>
+                                <Binding  Path="DesignClass.ClassName" UpdateSourceTrigger="PropertyChanged"  Mode="TwoWay" NotifyOnValidationError="True"  >
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+
+                        <TextBlock Style="{StaticResource TextBlockWrap}"  Margin="24,3,3,3" Text="显示名" VerticalAlignment="Center" Grid.Column="2"/>
+                        <TextBox Margin="3,3,3,0" Name="txtDisplayName" Grid.Column="3" MaxLength="200">
+                            <TextBox.Text>
+                                <Binding  Path="DesignClass.DisplayName" UpdateSourceTrigger="PropertyChanged"  Mode="TwoWay" NotifyOnValidationError="True"  >
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBlock Style="{StaticResource TextBlockWrap}" Margin="24,3,3,3" Text="命名空间" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+                        <ComboBox Margin="3" Grid.Row="1" Grid.Column="1"  ItemTemplate="{StaticResource ComboxTemplate}" ItemsSource="{Binding NamespaceSource}" SelectedItem="{Binding SelectedNameSpace,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"></ComboBox>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Margin="3" Grid.Row="1">
+                    <GroupBox.Header>
+                        <TextBlock Style="{StaticResource TextBlockWrap}"  Text="关联属性一" Grid.Column="0"/>
+                    </GroupBox.Header>
+                    <Grid Margin="0,20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>                            
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource TextBlockWrap}"  Margin="24,3,3,3" Text="名称" VerticalAlignment="Center" Grid.Column="0"/>
+                        <TextBox Margin="3,3,3,0" Name="txtRelationPropertyADbFieldName" IsReadOnly="{Binding IsClassNameReadonly}" Grid.Column="1" MaxLength="200" Visibility="Collapsed">
+                            <TextBox.Text>
+                                <Binding  Path="DesignClass.RelationPropertyA.PropertyName" UpdateSourceTrigger="PropertyChanged"  Mode="TwoWay" NotifyOnValidationError="True"  >
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBox Margin="3" Name="txtRelationPropertyAName" Grid.Column="1" MaxLength="200" IsReadOnly="True">
+                            <TextBox.Text>
+                                <Binding  Path="DesignClass.RelationPropertyA.DbFieldName" UpdateSourceTrigger="PropertyChanged"  Mode="TwoWay" NotifyOnValidationError="True"  >
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBlock Style="{StaticResource TextBlockWrap}"  Margin="24,3,3,3" Text="显示名" VerticalAlignment="Center" Grid.Column="2"/>
+                        <TextBox Margin="3,3,3,0" Name="txtRelationPropertyADisplayName" Grid.Column="3" MaxLength="200">
+                            <TextBox.Text>
+                                <Binding  Path="DesignClass.RelationPropertyA.DisplayName" UpdateSourceTrigger="PropertyChanged"  Mode="TwoWay" NotifyOnValidationError="True"  >
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBlock Style="{StaticResource TextBlockWrap}" Margin="24,3,3,3" Text="关联类型" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+                        <ComboBox x:Name="cbxRelationPropertyAStruct" Margin="3" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding RelationPropertyAStructSource}" SelectedItem="{Binding DesignClass.RelationPropertyA.StructName,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" IsEditable="True" IsTextSearchEnabled="True" StaysOpenOnEdit="True">
+                            <Event:Interaction.Triggers>
+                                <Event:EventTrigger EventName="SelectionChanged" SourceName="cbxRelationPropertyAStruct">
+                                    <Event:InvokeCommandAction  Command="{Binding RelationPropertyAStructChangedCommand}" />
+                                </Event:EventTrigger>
+                            </Event:Interaction.Triggers>
+                        </ComboBox>
+                        <!--<TextBlock Style="{StaticResource TextBlockWrap}" Grid.Row="1" Margin="24,3,3,3" Text="存储名称" VerticalAlignment="Center" Grid.Column="2"/>-->
+                        
+                    </Grid>
+                </GroupBox>
+                <GroupBox Margin="3" Grid.Row="2">
+                    <GroupBox.Header>
+                        <TextBlock Style="{StaticResource TextBlockWrap}"  Text="关联属性二" Grid.Column="0"/>
+                    </GroupBox.Header>
+                    <Grid Margin="0,20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource TextBlockWrap}"  Margin="24,3,3,3" Text="名称" VerticalAlignment="Center" Grid.Column="0"/>
+                        <TextBox Margin="3,3,3,0" Name="txtRelationPropertyBDbFieldName" IsReadOnly="{Binding IsClassNameReadonly}" Grid.Column="1" MaxLength="200" Visibility="Collapsed">
+                            <TextBox.Text>
+                                <Binding  Path="DesignClass.RelationPropertyB.PropertyName" UpdateSourceTrigger="PropertyChanged"  Mode="TwoWay" NotifyOnValidationError="True"  >
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBox Margin="3" Name="txtRelationPropertyBName" Grid.Column="1" MaxLength="200" IsReadOnly="True">
+                            <TextBox.Text>
+                                <Binding  Path="DesignClass.RelationPropertyB.DbFieldName" UpdateSourceTrigger="PropertyChanged"  Mode="TwoWay" NotifyOnValidationError="True"  >
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBlock Style="{StaticResource TextBlockWrap}"  Margin="24,3,3,3" Text="显示名" VerticalAlignment="Center" Grid.Column="2"/>
+                        <TextBox Margin="3,3,3,0" Name="txtRelationPropertyBDisplayName" Grid.Column="3" MaxLength="200">
+                            <TextBox.Text>
+                                <Binding  Path="DesignClass.RelationPropertyB.DisplayName" UpdateSourceTrigger="PropertyChanged"  Mode="TwoWay" NotifyOnValidationError="True"  >
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBlock Style="{StaticResource TextBlockWrap}" Margin="24,3,3,3" Text="关联类型" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+                       
+                        <ComboBox x:Name="cbxRelationPropertyBStruct" Margin="3" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding RelationPropertyBStructSource}" SelectedItem="{Binding DesignClass.RelationPropertyB.StructName,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" IsEditable="True" IsTextSearchEnabled="True" StaysOpenOnEdit="True">
+                            <Event:Interaction.Triggers>
+                                <Event:EventTrigger EventName="SelectionChanged" SourceName="cbxRelationPropertyBStruct">
+                                    <Event:InvokeCommandAction  Command="{Binding RelationPropertyBStructChangedCommand}" />
+                                </Event:EventTrigger>
+                            </Event:Interaction.Triggers>
+                        </ComboBox>
+                        <!--<TextBlock Style="{StaticResource TextBlockWrap}" Grid.Row="1" Margin="24,3,3,3" Text="存储名称" VerticalAlignment="Center" Grid.Column="2"/>-->
+                        
+                    </Grid>
+                </GroupBox>
+                <GroupBox Margin="3" Grid.Row="3">
+                    <WrapPanel Grid.Row="2" HorizontalAlignment="Right" Margin="8,13,8,8">
+                        <telerik:RadButton x:Name="btnOK" Content="保 存" MinWidth="60" MinHeight="30" Margin="5 0"  Click="btnOk_Click"></telerik:RadButton>
+                        <telerik:RadButton Content="取 消" MinWidth="60" MinHeight="30" Margin="5 0"  Click="btnCancel_Click"></telerik:RadButton>
+                    </WrapPanel>
+                </GroupBox>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

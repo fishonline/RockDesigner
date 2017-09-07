@@ -1,0 +1,25 @@
+﻿<Window x:Class="Rock.ActivityDesignerLibrary.ArtificialGuide"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded"
+        Title="人工活动设置" Height="120" Width="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>           
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="76*"></ColumnDefinition>
+            <ColumnDefinition Width="251*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>      
+        <TextBlock Height="23" HorizontalAlignment="Right" Text="描述："
+                            VerticalAlignment="Center" />
+        <TextBox Grid.Column="1" Height="23" HorizontalAlignment="Left" Name="txtDescription"
+                            VerticalAlignment="Center" Width="230" Margin="10,0,0,0" />
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="10,0,10,0" HorizontalAlignment="Right">           
+            <Button Content="确 定" Name="btnCommit" Margin="10" Width="80" Click="btnCommit_Click"></Button>
+            <Button Content="取 消" Name="btnCancels" Margin="10" Width="80" Click="btnCancel_Click"></Button>
+        </StackPanel>
+    </Grid>
+    
+</Window>

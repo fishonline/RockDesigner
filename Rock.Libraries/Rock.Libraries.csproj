@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CB4356F1-C0A7-4DBF-9811-6F3B44BAE3C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rock.Libraries</RootNamespace>
+    <AssemblyName>Rock.Libraries</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Prism\Microsoft.Expression.Interactions.dll" />
+    <Content Include="Prism\Microsoft.Practices.Prism.dll" />
+    <Content Include="Prism\Microsoft.Practices.Prism.Interactivity.dll" />
+    <Content Include="Prism\Microsoft.Practices.Prism.MefExtensions.dll" />
+    <Content Include="Prism\Microsoft.Practices.ServiceLocation.dll" />
+    <Content Include="Prism\System.Windows.Interactivity.dll" />
+    <Content Include="Rock\clrzmq.dll" />
+    <Content Include="Rock\clrzmq.pdb" />
+    <Content Include="Rock\CSScriptLibrary.dll" />
+    <Content Include="Rock\ExpressionEval.dll" />
+    <Content Include="Rock\libzmq.dll" />
+    <Content Include="Rock\MySql.Data.dll" />
+    <Content Include="Rock\Rock.Dyn.Comm.dll" />
+    <Content Include="Rock\Rock.Dyn.Comm.pdb" />
+    <Content Include="Rock\Rock.Dyn.Core.dll" />
+    <Content Include="Rock\Rock.Dyn.Core.pdb" />
+    <Content Include="Rock\Rock.Dyn.Msg.dll" />
+    <Content Include="Rock\Rock.Dyn.Msg.pdb" />
+    <Content Include="Rock\Rock.Orm.Common.dll" />
+    <Content Include="Rock\Rock.Orm.Common.pdb" />
+    <Content Include="Rock\Rock.Orm.Data.dll" />
+    <Content Include="Rock\Rock.Orm.Data.pdb" />
+    <Content Include="Rock\System.Data.SQLite.dll" />
+    <Content Include="Rock\XTemplate.dll" />
+    <Content Include="Rock\XTemplate.pdb" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Pivot.Core.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Pivot.Core.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Pivot.DataProviders.Adomd.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Pivot.DataProviders.Adomd.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Pivot.DataProviders.Xmla.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Pivot.DataProviders.Xmla.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Chart.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Chart.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Data.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Data.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.DataServices.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.DataServices.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.DataVisualization.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.DataVisualization.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Diagrams.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Diagrams.Extensions.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Diagrams.Extensions.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Diagrams.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Docking.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Docking.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.EntityFramework.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.EntityFramework.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Expressions.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Expressions.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.FixedDocumentViewers.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.FixedDocumentViewers.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.GanttView.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.GanttView.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.GridView.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.GridView.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.ImageEditor.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.ImageEditor.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Input.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Input.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Navigation.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Navigation.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Pivot.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Pivot.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.PivotFieldList.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.PivotFieldList.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.RibbonView.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.RibbonView.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.RichTextBoxUI.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.RichTextBoxUI.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.ScheduleView.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.ScheduleView.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Spreadsheet.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.Spreadsheet.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Controls.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Data.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Data.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Diagrams.Core.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Diagrams.Core.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Core.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Core.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Fixed.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Fixed.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.FormatProviders.Html.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.FormatProviders.Html.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.FormatProviders.MsRichTextBoxXaml.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.FormatProviders.MsRichTextBoxXaml.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.FormatProviders.OpenXml.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.FormatProviders.OpenXml.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.FormatProviders.Pdf.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.FormatProviders.Pdf.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.FormatProviders.Rtf.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.FormatProviders.Rtf.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.FormatProviders.Xaml.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.FormatProviders.Xaml.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Proofing.DataGrid.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Proofing.DataGrid.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Proofing.Dictionaries.En-US.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Proofing.Dictionaries.En-US.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Proofing.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Proofing.RadGridView.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Proofing.RadGridView.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Proofing.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Spreadsheet.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.Spreadsheet.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Documents.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Maths.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Maths.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.PersistenceFramework.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.PersistenceFramework.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Scheduling.Core.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Scheduling.Core.xml" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Zip.dll" />
+    <Content Include="Telerik 2013.1.403.40\Telerik.Windows.Zip.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

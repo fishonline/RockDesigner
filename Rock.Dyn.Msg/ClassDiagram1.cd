@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Rock.Dyn.Msg.TSerializer">
+    <Position X="3.25" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>wAIAEATJFAjApmpAEggKwAAgAACEAUIhAABEAUEIAgA=</HashCode>
+      <FileName>Serialize\TSerializer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rock.Dyn.Msg.TBinarySerializer">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>wAJAUARJFAjIpmpAEAgK0KAAAAOEAGIjCIBEAUEAFoA=</HashCode>
+      <FileName>Serialize\TBinarySerializer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rock.Dyn.Msg.TJSONSerializer">
+    <Position X="4" Y="3.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="Rock.Dyn.Msg.TJSONSerializer.JSONBaseContext" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Serializer\TJSONSerializer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="Rock.Dyn.Msg.TJSONSerializer.JSONListContext" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Serializer\TJSONSerializer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="Rock.Dyn.Msg.TJSONSerializer.JSONPairContext" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Serializer\TJSONSerializer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="Rock.Dyn.Msg.TJSONSerializer.LookaheadReader" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Serializer\TJSONSerializer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>3EMCECRJVCz0pmp1CogK9AAKRhCdB1YhAYBEgUEQgyg=</HashCode>
+      <FileName>Serialize\TJSONSerializer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rock.Dyn.Msg.TBase64Utils">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEIAAAAAAAAAAAAAAAAAAAAAAABAAAAAACAAAAA=</HashCode>
+      <FileName>Serialize\TBase64Utils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rock.Dyn.Msg.TSerializerException">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAADAAAAAAAAAAAAAAAQAQAAAAAAABAAAAABE=</HashCode>
+      <FileName>Serialize\TSerializerException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rock.Dyn.Msg.TSerializerUtil">
+    <Position X="13.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Serialize\TSerializerUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rock.Dyn.Msg.THashSet&lt;T&gt;">
+    <Position X="6.5" Y="7" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAABAQAAQABAQAAAAAAAAAAAAAAABQIQA=</HashCode>
+      <FileName>Collections\THashSet.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Rock.Dyn.Msg.TApplicationException">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Rock.Dyn.Msg.TApplicationException.ExceptionType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>TApplicationException.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAABAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>TApplicationException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Rock.Dyn.Msg.TMessage">
+    <Position X="6.25" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AIgAAAAgAAAIAAAACAAAACQAAAAlAAgABQAAAACIAAA=</HashCode>
+      <FileName>Serialize\TMessage.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Rock.Dyn.Msg.TField">
+    <Position X="9.75" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAFAAAAAQAAAAAAAgA=</HashCode>
+      <FileName>Serialize\TField.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Rock.Dyn.Msg.TList">
+    <Position X="15.75" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAQAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Serialize\TList.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Rock.Dyn.Msg.TMap">
+    <Position X="13.75" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAABQAAAAQAAAAAAAQAAAAEAA=</HashCode>
+      <FileName>Serialize\TMap.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Rock.Dyn.Msg.TSet">
+    <Position X="11.75" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAQAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Serialize\TSet.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Rock.Dyn.Msg.TStruct">
+    <Position X="8" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Serialize\TStruct.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="Rock.Dyn.Msg.TBase">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Serialize\TBase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Rock.Dyn.Msg.TType">
+    <Position X="10.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAFAAAABAgBAAgQAAAAAAABAACAAUAIAAAAAAKAAI=</HashCode>
+      <FileName>Serialize\TType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Rock.Dyn.Msg.TMessageType">
+    <Position X="9" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAABAAAAAAAAAAAAAAQAQAAAABAAAAAAAA=</HashCode>
+      <FileName>Serialize\TMessageType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="宋体" Size="9" />
+</ClassDiagram>

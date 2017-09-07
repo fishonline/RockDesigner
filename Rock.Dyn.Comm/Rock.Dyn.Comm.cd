@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Rock.Dyn.Comm.AsyncRpcClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAQIAAQCAGFEAQAEAAEEAAAAAAABAQIAADgAAAAAA=</HashCode>
+      <FileName>AsyncRpcClient.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Rock.Dyn.Comm.DynSerialize" Collapsed="true">
+    <Position X="6" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAREAAQACAAAAgAQAAAgAAQARABAAKAABSAABA=</HashCode>
+      <FileName>DynSerialize.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rock.Dyn.Comm.FtpClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UBAAoCBAACAEBgAQAUAAAQgACBAQAAIQAAAhUQCQABA=</HashCode>
+      <FileName>FtpClient.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Rock.Dyn.Comm.FtpServer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAEBAAAAIABAAAAAAACAICQAAAhSgAAAAA=</HashCode>
+      <FileName>FtpServer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Rock.Dyn.Comm.RouterDealer" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACAABAAAAAAAAAgAAAQAAQAAAAAAQAAAAAA=</HashCode>
+      <FileName>RouterDealer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rock.Dyn.Comm.RpcClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAQCAEBAASAUAAAAAAAAAAAABQAAABAACAAAA=</HashCode>
+      <FileName>RpcClient.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Rock.Dyn.Comm.RpcServer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIACAEBAAQAcAAAAAAAIAAAAAYAAAhAAGAAAA=</HashCode>
+      <FileName>RpcServer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Rock.Dyn.Comm.VirtuaIP" Collapsed="true">
+    <Position X="9.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAIAEAEAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>VirtuaIP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rock.Dyn.Comm.RockContext">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAECAAAAiAAABIggAABAAAAACEAAAAAAAAAAIBAjAA=</HashCode>
+      <FileName>RockContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rock.Dyn.Comm.RockRouter" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAJABCACEBAIAAABAAgAkAAAABgAIAgCACACAAA=</HashCode>
+      <FileName>RockRouter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rock.Dyn.Comm.RockWorker" Collapsed="true">
+    <Position X="7.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAiAGRBAAgIRBAAgAAAAAAAAQAAADAAAAAAA=</HashCode>
+      <FileName>RockWorker.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Delegate Name="Rock.Dyn.Comm.DataReceived" Collapsed="true">
+    <Position X="6" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataReceived.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Rock.Dyn.Comm.ProgressEventHandler" Collapsed="true">
+    <Position X="9.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAQAAAA=</HashCode>
+      <FileName>FtpClient.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Rock.Dyn.Comm.ExceptionDelegate" Collapsed="true">
+    <Position X="7.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FtpServer.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Rock.Dyn.Comm.AnalysisHandler" Collapsed="true">
+    <Position X="4.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RockRouter.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

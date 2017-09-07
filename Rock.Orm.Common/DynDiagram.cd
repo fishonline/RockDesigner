@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Rock.Orm.Common.MetaDataManager">
+    <Position X="0.5" Y="0.5" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>kAAggAIQAgSYAwAAABAgQAAAAAAAEAAAAQEAAAAAAAI=</HashCode>
+      <FileName>MetaDataManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Entities" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Rock.Orm.Common.EntityConfiguration">
+    <Position X="4.5" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAIAKBAUEAAsECwSAQEBQQQAhAAEICABIAAAgAACAgA=</HashCode>
+      <FileName>MetaDataManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Properties" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Rock.Orm.Common.PropertyConfiguration">
+    <Position X="7.75" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>IAAGLgAMOAAYGAoYoFIBgBSAMFEAACAIJcADkBACwAM=</HashCode>
+      <FileName>MetaDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rock.Orm.Common.DynEntityTypeManager">
+    <Position X="0.5" Y="5.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAIIIAAAAAAAEAAAAAAACAAAAAAAAEAAAAAAgA=</HashCode>
+      <FileName>DynEntity\DynEntityTypeManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Entities" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Rock.Orm.Common.DynEntityType">
+    <Position X="4.5" Y="5.75" Width="2.25" />
+    <NestedTypes>
+      <Class Name="Rock.Orm.Common.DynEntityType._" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>DynEntity\DynEntityType.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>EAAAKBAUEABokKwSEAEBQAQQBAACKAAYIAAAgAAAigA=</HashCode>
+      <FileName>DynEntity\DynEntityType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rock.Orm.Common.DynPropertyConfiguration">
+    <Position X="7.5" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>KBAHLgIMOAAYGAoaoFIBgBSQcFkCACAIJcADkBACwAM=</HashCode>
+      <FileName>DynEntity\DynPropertyConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rock.Orm.Common.DynEntity">
+    <Position X="14.75" Y="0.5" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="Rock.Orm.Common.DynEntity.PropertyChangedEventArgs" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>DynEntity\DynEntity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Delegate Name="Rock.Orm.Common.DynEntity.PropertyChangedHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>DynEntity\DynEntity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="Rock.Orm.Common.DynEntity.QueryProxyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>DynEntity\DynEntity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>IEACYmKAAZUAAEJBaEQIghQAzKDIDAgEgIRAAAQSIgg=</HashCode>
+      <FileName>DynEntity\DynEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rock.Orm.Common.Entity">
+    <Position X="10.75" Y="0.5" Width="3" />
+    <NestedTypes>
+      <Class Name="Rock.Orm.Common.Entity.PropertyChangedEventArgs" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Entity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Delegate Name="Rock.Orm.Common.Entity.PropertyChangedHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Entity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="Rock.Orm.Common.Entity.QueryProxyHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Entity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>IAACYmCAAIQAAEJBYEQIghAAjKDMDAgAgIQAAAQQIgo=</HashCode>
+      <FileName>StaEntity\Entity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="宋体" Size="9" />
+</ClassDiagram>

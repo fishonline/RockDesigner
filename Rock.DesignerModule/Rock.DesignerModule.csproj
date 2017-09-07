@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{166FDB4F-AFFE-4C38-8B7D-1CAFA4209F7F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rock.DesignerModule</RootNamespace>
+    <AssemblyName>Rock.DesignerModule</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CSScriptLibrary">
+      <HintPath>..\Rock.Libraries\Rock\CSScriptLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Rock.Libraries\Prism\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism">
+      <HintPath>..\Rock.Libraries\Prism\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Interactivity">
+      <HintPath>..\Rock.Libraries\Prism\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.MefExtensions">
+      <HintPath>..\Rock.Libraries\Prism\Microsoft.Practices.Prism.MefExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\Rock.Libraries\Prism\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Activities.Core.Presentation" />
+    <Reference Include="System.Activities.DurableInstancing" />
+    <Reference Include="System.Activities.Presentation" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.DurableInstancing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Rock.Libraries\Prism\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\Rock.Libraries\Telerik 2013.1.403.40\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data">
+      <HintPath>..\Rock.Libraries\Telerik 2013.1.403.40\Telerik.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Docking">
+      <HintPath>..\Rock.Libraries\Telerik 2013.1.403.40\Telerik.Windows.Controls.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView">
+      <HintPath>..\Rock.Libraries\Telerik 2013.1.403.40\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input">
+      <HintPath>..\Rock.Libraries\Telerik 2013.1.403.40\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\Rock.Libraries\Telerik 2013.1.403.40\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>..\Rock.Libraries\Telerik 2013.1.403.40\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DesignerModule.cs" />
+    <Compile Include="Interface\ISystemService.cs" />
+    <Compile Include="Models\ApplicationDesignCache.cs" />
+    <Compile Include="Models\ApplicationModule.cs" />
+    <Compile Include="Models\DesignInfo.cs" />
+    <Compile Include="Models\CollectionTypeModel.cs" />
+    <Compile Include="Models\DesignApplication.cs" />
+    <Compile Include="Models\DesignClass.cs" />
+    <Compile Include="Models\DesignMethod.cs" />
+    <Compile Include="Models\DesignMethodParameter.cs" />
+    <Compile Include="Models\DesignProperty.cs" />
+    <Compile Include="Models\Namespace.cs" />
+    <Compile Include="Models\RadGridViewRowActivatedBehavior.cs" />
+    <Compile Include="Models\RadPaneViewModel.cs" />
+    <Compile Include="Models\TabViewModel.cs" />
+    <Compile Include="Models\Test.cs" />
+    <Compile Include="Models\TreeNode.cs" />
+    <Compile Include="Models\WorkflowModel.cs" />
+    <Compile Include="Models\WorkflowToolbox.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Service\ApplicationDesignService.cs" />
+    <Compile Include="Service\AppLoader.cs" />
+    <Compile Include="Service\CodeGenHelper.cs" />
+    <Compile Include="Service\DataTransactionContext.cs" />
+    <Compile Include="Service\SystemService.cs" />
+    <Compile Include="Service\ViewStateCleaningWriter.cs" />
+    <Compile Include="ViewModels\ApplicationModuleManagerViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationModuleRelationViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationModuleViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationManagerViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationOpenViewModel.cs" />
+    <Compile Include="ViewModels\CodeGenViewModel.cs" />
+    <Compile Include="ViewModels\ControlClassInfoViewModel.cs" />
+    <Compile Include="ViewModels\DesignApplicationViewModel.cs" />
+    <Compile Include="ViewModels\DesignerViewModel.cs" />
+    <Compile Include="ViewModels\DocumentControlViewModel.cs" />
+    <Compile Include="ViewModels\ClassViewModel.cs" />
+    <Compile Include="ViewModels\EntityClassInfoViewModel.cs" />
+    <Compile Include="ViewModels\MenuControlViewModel.cs" />
+    <Compile Include="ViewModels\MethodViewModel.cs" />
+    <Compile Include="ViewModels\NamespaceManagerViewModel.cs" />
+    <Compile Include="ViewModels\NameSpaceViewModel.cs" />
+    <Compile Include="ViewModels\ParameterViewModel.cs" />
+    <Compile Include="ViewModels\PropertyViewModel.cs" />
+    <Compile Include="ViewModels\RelationClassInfoViewModel.cs" />
+    <Compile Include="ViewModels\UIInfoViewModel.cs" />
+    <Compile Include="ViewModels\WorkflowDesignerViewModel.cs" />
+    <Compile Include="ViewModels\WorkflowOpenViewModel.cs" />
+    <Compile Include="Views\ApplicationManagerView.xaml.cs">
+      <DependentUpon>ApplicationManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ApplicationModuleManagerView.xaml.cs">
+      <DependentUpon>ApplicationModuleManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ApplicationModuleRelationView.xaml.cs">
+      <DependentUpon>ApplicationModuleRelationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ApplicationModuleView.xaml.cs">
+      <DependentUpon>ApplicationModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ApplicationOpenWindow.xaml.cs">
+      <DependentUpon>ApplicationOpenWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodeGenWindow.xaml.cs">
+      <DependentUpon>CodeGenWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ControlClassInfoView.xaml.cs">
+      <DependentUpon>ControlClassInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ControlClassView.xaml.cs">
+      <DependentUpon>ControlClassView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DesignApplicationView.xaml.cs">
+      <DependentUpon>DesignApplicationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DesignerView.xaml.cs">
+      <DependentUpon>DesignerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DocumentControl.xaml.cs">
+      <DependentUpon>DocumentControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityClassInfoView.xaml.cs">
+      <DependentUpon>EntityClassInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityClassView.xaml.cs">
+      <DependentUpon>EntityClassView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MenuControl.xaml.cs">
+      <DependentUpon>MenuControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MethodView.xaml.cs">
+      <DependentUpon>MethodView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NameSpaceManagerView.xaml.cs">
+      <DependentUpon>NameSpaceManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NameSpaceView.xaml.cs">
+      <DependentUpon>NameSpaceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ParameterView.xaml.cs">
+      <DependentUpon>ParameterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PropertyView.xaml.cs">
+      <DependentUpon>PropertyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RelationClassInfoView.xaml.cs">
+      <DependentUpon>RelationClassInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RelationClassView.xaml.cs">
+      <DependentUpon>RelationClassView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UIInfoView.xaml.cs">
+      <DependentUpon>UIInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorkflowDesignerView.xaml.cs">
+      <DependentUpon>WorkflowDesignerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorkflowOpenWindow.xaml.cs">
+      <DependentUpon>WorkflowOpenWindow.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Rock.ActivityDesignerLibrary\Rock.ActivityDesignerLibrary.csproj">
+      <Project>{d410fc04-fd4f-4f79-8256-ed0c0b2547c7}</Project>
+      <Name>Rock.ActivityDesignerLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rock.Common\Rock.Common.csproj">
+      <Project>{1522b4ef-7a59-417a-83c3-c950a4efd005}</Project>
+      <Name>Rock.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rock.Dyn.Comm\Rock.Dyn.Comm.csproj">
+      <Project>{fc77f806-54bf-448e-ae3b-b0b8b604dbcb}</Project>
+      <Name>Rock.Dyn.Comm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rock.Dyn.Core\Rock.Dyn.Core.csproj">
+      <Project>{d23190ee-f047-4820-bc43-99a2087ebd49}</Project>
+      <Name>Rock.Dyn.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rock.Dyn.Msg\Rock.Dyn.Msg.csproj">
+      <Project>{499eb63c-d74c-47e8-ae48-a2fc94538e9d}</Project>
+      <Name>Rock.Dyn.Msg</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rock.Orm.Common\Rock.Orm.Common.csproj">
+      <Project>{b8f80beb-93a6-4966-842f-92e38e11082c}</Project>
+      <Name>Rock.Orm.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rock.Orm.Data\Rock.Orm.Data.csproj">
+      <Project>{b71d2a5f-5e7d-4b16-b178-29df6f7755c1}</Project>
+      <Name>Rock.Orm.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\line.png" />
+    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\logoMenuStrip.png" />
+    <Resource Include="Images\selectedtab.png" />
+    <Resource Include="Images\tabclose.png" />
+    <Resource Include="Images\unselectedtab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\ApplicationManagerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ApplicationModuleManagerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ApplicationModuleRelationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ApplicationModuleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ApplicationOpenWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodeGenWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ControlClassInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ControlClassView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DesignApplicationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DesignerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DocumentControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityClassInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityClassView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MenuControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MethodView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NameSpaceManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NameSpaceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ParameterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PropertyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RelationClassInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RelationClassView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UIInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WorkflowDesignerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WorkflowOpenWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\delete.png" />
+    <Resource Include="Images\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Application.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\EntityClass.png" />
+    <Resource Include="Images\ControlClass.png" />
+    <Resource Include="Images\RelationClass.png" />
+    <Resource Include="Images\FuncationClass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AttributeClass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\property.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\module.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\method.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\parameter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\checkbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\textarea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\redo.png" />
+    <Resource Include="Images\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Save1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Config.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Terminator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\person.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BackTo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Countersign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\debug.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

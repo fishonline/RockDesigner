@@ -1,0 +1,395 @@
+﻿<UserControl x:Class="Rock.DesignerModule.Views.DesignerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:Event="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:cmd="clr-namespace:Rock.DesignerModule.Models" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="900">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <HierarchicalDataTemplate x:Key="TreeViewTemplate" ItemsSource="{Binding Children}">
+                <StackPanel Orientation="Horizontal" >
+                    <Image Source="{Binding Image}" />
+                    <TextBlock Text="{Binding Name}" />
+                </StackPanel>
+            </HierarchicalDataTemplate>
+            <DataTemplate x:Key="contextMenuItemTemplate">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{Binding Image}" />
+                    <TextBlock Text="{Binding Header}" />
+                </StackPanel>
+            </DataTemplate>
+            <Style TargetType="TextBlock">
+                <Setter Property="Margin" Value="0 0 8 0" />
+                <Setter Property="Width" Value="80" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="TextAlignment" Value="Right" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="310"></ColumnDefinition>
+            <ColumnDefinition  Width="auto"/>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="LightGray"  BorderThickness="1">
+            <Grid>
+                <telerik:RadTreeView x:Name="ApplicationSystem" ItemsSource="{Binding ApplicationSystemTreeDataSource}" ItemTemplate="{StaticResource ResourceKey=TreeViewTemplate}" 
+                  IsLineEnabled="True" SelectedItem="{Binding SelectedTreeNode,Mode=TwoWay}">
+                    <telerik:RadTreeView.ItemContainerStyle>
+                        <Style TargetType="{x:Type telerik:RadTreeViewItem}">
+                            <Setter Property="IsExpanded" Value="{Binding IsExpanded}"/>
+                        </Style>
+                    </telerik:RadTreeView.ItemContainerStyle>
+                    <Event:Interaction.Triggers>
+                        <Event:EventTrigger EventName="MouseUp" SourceName="ApplicationSystem">
+                            <Event:InvokeCommandAction Command="{Binding MouseUpCommand}" />
+                        </Event:EventTrigger>
+                    </Event:Interaction.Triggers>
+                </telerik:RadTreeView>
+            </Grid>
+        </Border>
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Right" ResizeBehavior="PreviousAndNext" BorderThickness="1"  Width="5"/>
+        <Grid Grid.Column="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Background="#E4EbF4">
+                    <telerik:RadMenu  HorizontalAlignment="Left" Background="#E4EbF4">
+                        <telerik:RadMenuItem  Margin="5,0,0,0" Command="{Binding SaveClassCommand}">
+                            <telerik:RadMenuItem.Icon>
+                                <Image Source="../Images/Save.png" />
+                            </telerik:RadMenuItem.Icon>
+                        </telerik:RadMenuItem>
+                    </telerik:RadMenu>
+                </StackPanel>
+                <telerik:RadTabControl Grid.Row="1" x:Name="dddddd" VerticalAlignment="Top" SelectedIndex="{Binding TabSelectedIndex,Mode=TwoWay}"  DisplayMemberPath="Content" DropDownDisplayMode="Visible" HeaderBackground="#E4EbF4" ScrollMode="Viewport" BorderThickness="0">
+                    <telerik:RadTabItem DropDownContent="类型设计" Header="类型设计" Background="#E4EbF4">
+                        <Border BorderBrush="LightGray"  BorderThickness="1" Grid.Column="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Border BorderBrush="LightGray"  BorderThickness="1" Background="#E4EbF4">
+                                    <telerik:RadMenu  HorizontalAlignment="Left" Background="#E4EbF4">
+                                        <telerik:RadMenuItem Header="添 加" Margin="5,0,0,0" >
+                                            <telerik:RadMenuItem.Icon>
+                                                <Image Source="../Images/add.png" />
+                                            </telerik:RadMenuItem.Icon>
+                                            <telerik:RadMenuItem Header="添加实体类" Command="{Binding AddClassCommand}" CommandParameter="Entity">
+                                                <telerik:RadMenuItem.Icon>
+                                                    <Image Source="../Images/EntityClass.png" />
+                                                </telerik:RadMenuItem.Icon>
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Header="添加关联类" Command="{Binding AddClassCommand}" CommandParameter="Relation">
+                                                <telerik:RadMenuItem.Icon>
+                                                    <Image Source="../Images/RelationClass.png" />
+                                                </telerik:RadMenuItem.Icon>
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Header="添加控制类" Command="{Binding AddClassCommand}" CommandParameter="Control">
+                                                <telerik:RadMenuItem.Icon>
+                                                    <Image Source="../Images/ControlClass.png" />
+                                                </telerik:RadMenuItem.Icon>
+                                            </telerik:RadMenuItem>                                            
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Header="编 辑" Command="{Binding EditClassCommand}">
+                                            <telerik:RadMenuItem.Icon>
+                                                <Image Source="../Images/edit.png" />
+                                            </telerik:RadMenuItem.Icon>
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Header="删 除" Command="{Binding DeleteClassCommand}">
+                                            <telerik:RadMenuItem.Icon>
+                                                <Image Source="../Images/delete.png" />
+                                            </telerik:RadMenuItem.Icon>
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Header="全部选择" Command="{Binding SelectAllClassCommand}">
+                                            <telerik:RadMenuItem.Icon>
+                                                <Image Source="../Images/checkbox.png" />
+                                            </telerik:RadMenuItem.Icon>
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Header="生成实体" Command="{Binding GenerateStaticEntityCommand}">
+                                            <telerik:RadMenuItem.Icon>
+                                                <Image Source="../Images/textarea.png" />
+                                            </telerik:RadMenuItem.Icon>
+                                        </telerik:RadMenuItem>
+                                    </telerik:RadMenu>
+                                </Border>
+                                <Grid Grid.Row="1">
+                                    <telerik:RadGridView Grid.Row="1" FrozenColumnsSplitterVisibility="Collapsed" x:Name="DesignClassGridView" ItemsSource="{Binding DesignClassDataSource}" SelectedItem="{Binding CurrentDesignClass}"
+                     cmd:RowActivated.Command="{Binding ClassRowActivatedCommand}" VerticalAlignment="Top" Height="auto" AutoGenerateColumns="False" IsFilteringAllowed="False" IsReadOnly="True" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" Margin="1">
+                                        <telerik:RadGridView.Resources>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Margin" Value="0" />
+                                                <Setter Property="Width" Value="Auto" />
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                            </Style>
+                                        </telerik:RadGridView.Resources>
+                                        <telerik:RadGridView.Columns>
+                                            <telerik:GridViewDataColumn Width="35" Header="选择">
+                                                <telerik:GridViewDataColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <CheckBox Margin="5,0,0,0" x:Name="cbx" IsChecked="{Binding IsChecked,Mode=TwoWay}" >
+                                                            <Event:Interaction.Triggers>
+                                                                <Event:EventTrigger EventName="Checked" SourceName="cbx">
+                                                                    <Event:InvokeCommandAction Command="{Binding DataContext.ClassCheckedCommand,RelativeSource={RelativeSource FindAncestor,AncestorType=UserControl}}"/>
+                                                                </Event:EventTrigger>
+                                                                <Event:EventTrigger EventName="Unchecked" SourceName="cbx">
+                                                                    <Event:InvokeCommandAction Command="{Binding DataContext.ClassUncheckedCommand,RelativeSource={RelativeSource FindAncestor,AncestorType=UserControl}}"/>
+                                                                </Event:EventTrigger>
+                                                            </Event:Interaction.Triggers>
+                                                        </CheckBox>
+                                                    </DataTemplate>
+                                                </telerik:GridViewDataColumn.CellTemplate>
+                                            </telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="流水号" DataMemberBinding="{Binding ClassID}" IsVisible="False" />
+                                            <telerik:GridViewImageColumn Header="类型" DataMemberBinding="{Binding MainTypeImage}" Width="35"/>
+                                            <telerik:GridViewDataColumn Header="类型名称" DataMemberBinding="{Binding ClassName}"  MinWidth="190" />
+                                            <telerik:GridViewDataColumn Header="显示名称" DataMemberBinding="{Binding DisplayName}" MinWidth="190" />
+                                            <telerik:GridViewDataColumn Header="基类名称" DataMemberBinding="{Binding BaseClassName}" MinWidth="100" />
+                                            <telerik:GridViewDataColumn Header="描述" DataMemberBinding="{Binding Description}" Width="*" />
+                                        </telerik:RadGridView.Columns>
+                                        <Event:Interaction.Triggers>
+                                            <Event:EventTrigger EventName="SelectionChanged" SourceName="DesignClassGridView">
+                                                <Event:InvokeCommandAction  Command="{Binding ClassSelectionChangedCommand}" />
+                                            </Event:EventTrigger>
+                                        </Event:Interaction.Triggers>
+                                    </telerik:RadGridView>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </telerik:RadTabItem>
+                    <telerik:RadTabItem DropDownContent="属性设计" Header="属性设计" Background="#E4EbF4">
+                        <Border BorderBrush="LightGray"  BorderThickness="1" Grid.Column="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Border BorderBrush="LightGray"  BorderThickness="1" Background="#E4EbF4">
+                                    <telerik:RadMenu  HorizontalAlignment="Left" Background="#E4EbF4">
+                                        <telerik:RadMenuItem Header="添 加" Margin="5,0,0,0" Command="{Binding AddPropertyCommand}">
+                                            <telerik:RadMenuItem.Icon>
+                                                <Image Source="../Images/add.png" />
+                                            </telerik:RadMenuItem.Icon>
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Header="编 辑" Command="{Binding EditPropertyCommand}">
+                                            <telerik:RadMenuItem.Icon>
+                                                <Image Source="../Images/edit.png" />
+                                            </telerik:RadMenuItem.Icon>
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Header="删 除"  Command="{Binding DeletePropertyCommand}">
+                                            <telerik:RadMenuItem.Icon>
+                                                <Image Source="../Images/delete.png" />
+                                            </telerik:RadMenuItem.Icon>
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Header="界面信息"  Command="{Binding UIInfoEditCommand}">
+                                            <telerik:RadMenuItem.Icon>
+                                                <Image Source="../Images/textarea.png" />
+                                            </telerik:RadMenuItem.Icon>
+                                        </telerik:RadMenuItem>
+                                    </telerik:RadMenu>
+                                </Border>
+                                <Grid Grid.Row="1">
+                                    <telerik:RadGridView Grid.Row="1" FrozenColumnsSplitterVisibility="Collapsed" x:Name="DesignPropertyGridView" ItemsSource="{Binding CurrentDesignClass.Properties}" SelectedItem="{Binding CurrentdesignProperty}"
+                     cmd:RowActivated.Command="{Binding PropertyRowActivatedCommand}" VerticalAlignment="Top" Height="auto" AutoGenerateColumns="False" IsFilteringAllowed="False" IsReadOnly="True" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" Margin="1">
+                                        <telerik:RadGridView.Resources>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Margin" Value="0" />
+                                                <Setter Property="Width" Value="Auto" />
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                            </Style>
+                                        </telerik:RadGridView.Resources>
+                                        <telerik:RadGridView.Columns>
+                                            <telerik:GridViewDataColumn Width="35" Header="选择">
+                                                <telerik:GridViewDataColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <CheckBox Margin="5,0,0,0" x:Name="cbx" IsChecked="{Binding IsChecked,Mode=TwoWay}" >
+                                                            <Event:Interaction.Triggers>
+                                                                <Event:EventTrigger EventName="Checked" SourceName="cbx">
+                                                                    <Event:InvokeCommandAction Command="{Binding DataContext.PropertyCheckedCommand,RelativeSource={RelativeSource FindAncestor,AncestorType=UserControl}}" CommandParameter="{Binding PropertyName}"/>
+                                                                </Event:EventTrigger>
+                                                                <Event:EventTrigger EventName="Unchecked" SourceName="cbx">
+                                                                    <Event:InvokeCommandAction Command="{Binding DataContext.PropertyUncheckedCommand,RelativeSource={RelativeSource FindAncestor,AncestorType=UserControl}}"/>
+                                                                </Event:EventTrigger>
+                                                            </Event:Interaction.Triggers>
+                                                        </CheckBox>
+                                                    </DataTemplate>
+                                                </telerik:GridViewDataColumn.CellTemplate>
+                                            </telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="属性名称" DataMemberBinding="{Binding PropertyName}"  MinWidth="190" />
+                                            <telerik:GridViewDataColumn Header="显示名称" DataMemberBinding="{Binding DisplayName}" MinWidth="190" />
+                                            <telerik:GridViewDataColumn Header="关联类型" DataMemberBinding="{Binding RelationType}" MinWidth="100" />
+                                            <telerik:GridViewDataColumn Header="Struct名称" DataMemberBinding="{Binding StructName}" MinWidth="190" />
+                                            <telerik:GridViewDataColumn Header="集合类型" DataMemberBinding="{Binding CollectionType}" MinWidth="100" />
+                                            <telerik:GridViewDataColumn Header="可空" DataMemberBinding="{Binding IsNullable}"  MinWidth="50"/>
+                                            <telerik:GridViewDataColumn Header="描述" DataMemberBinding="{Binding Description}" Width="*" />
+                                        </telerik:RadGridView.Columns>
+                                        <Event:Interaction.Triggers>
+                                            <Event:EventTrigger EventName="SelectionChanged" SourceName="DesignPropertyGridView">
+                                                <Event:InvokeCommandAction  Command="{Binding PropertySelectionChangedCommand}" />
+                                            </Event:EventTrigger>
+                                        </Event:Interaction.Triggers>
+                                    </telerik:RadGridView>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </telerik:RadTabItem>
+                    <telerik:RadTabItem DropDownContent="方法设计" Header="方法设计" Background="#E4EbF4">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" MinHeight="200"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid Background="LightGray">
+                                    <StackPanel HorizontalAlignment="Left">
+                                        <TextBlock Margin="5,3,0,2" TextAlignment="Left" Text="方法列表"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                                <Border BorderBrush="LightGray" Grid.Row="1" BorderThickness="1" Background="#E4EbF4">
+                                    <telerik:RadMenu  HorizontalAlignment="Left" Background="#E4EbF4">
+                                        <telerik:RadMenuItem Header="添 加" Margin="5,0,0,0" Command="{Binding AddMethodCommand}">
+                                            <telerik:RadMenuItem.Icon>
+                                                <Image Source="../Images/add.png" />
+                                            </telerik:RadMenuItem.Icon>
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Header="编 辑" Command="{Binding EditMethodCommand}">
+                                            <telerik:RadMenuItem.Icon>
+                                                <Image Source="../Images/edit.png" />
+                                            </telerik:RadMenuItem.Icon>
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Header="删 除"  Command="{Binding DeleteMethodCommand}">
+                                            <telerik:RadMenuItem.Icon>
+                                                <Image Source="../Images/delete.png" />
+                                            </telerik:RadMenuItem.Icon>
+                                        </telerik:RadMenuItem>
+                                    </telerik:RadMenu>
+                                </Border>
+                                <Grid Grid.Row="2">
+                                    <telerik:RadGridView Grid.Row="1" FrozenColumnsSplitterVisibility="Collapsed" x:Name="DesignMethodGridView" ItemsSource="{Binding CurrentDesignClass.Methodes}" SelectedItem="{Binding SelectedDesignMethod}"
+                                     cmd:RowActivated.Command="{Binding MethodRowActivatedCommand}" VerticalAlignment="Top" Height="auto" AutoGenerateColumns="False" IsFilteringAllowed="False" IsReadOnly="True" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" Margin="1">
+                                        <telerik:RadGridView.Resources>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Margin" Value="0" />
+                                                <Setter Property="Width" Value="Auto" />
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                            </Style>
+                                        </telerik:RadGridView.Resources>
+                                        <telerik:RadGridView.Columns>
+                                            <telerik:GridViewDataColumn Width="35" Header="选择">
+                                                <telerik:GridViewDataColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <CheckBox Margin="5,0,0,0" x:Name="cbx" IsChecked="{Binding IsChecked,Mode=TwoWay}" >
+                                                            <Event:Interaction.Triggers>
+                                                                <Event:EventTrigger EventName="Checked" SourceName="cbx">
+                                                                    <Event:InvokeCommandAction Command="{Binding DataContext.MethodCheckedCommand,RelativeSource={RelativeSource FindAncestor,AncestorType=UserControl}}"/>
+                                                                </Event:EventTrigger>
+                                                                <Event:EventTrigger EventName="Unchecked" SourceName="cbx">
+                                                                    <Event:InvokeCommandAction Command="{Binding DataContext.MethodUncheckedCommand,RelativeSource={RelativeSource FindAncestor,AncestorType=UserControl}}"/>
+                                                                </Event:EventTrigger>
+                                                            </Event:Interaction.Triggers>
+                                                        </CheckBox>
+                                                    </DataTemplate>
+                                                </telerik:GridViewDataColumn.CellTemplate>
+                                            </telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="方法名称" DataMemberBinding="{Binding MethodName}"  MinWidth="190" />
+                                            <telerik:GridViewDataColumn Header="显示名称" DataMemberBinding="{Binding DisplayName}" MinWidth="190" />
+                                            <telerik:GridViewDataColumn Header="描述" DataMemberBinding="{Binding Description}" Width="*" />
+                                        </telerik:RadGridView.Columns>
+                                        <Event:Interaction.Triggers>
+                                            <Event:EventTrigger EventName="SelectionChanged" SourceName="DesignPropertyGridView">
+                                                <Event:InvokeCommandAction  Command="{Binding PropertySelectionChangedCommand}" />
+                                            </Event:EventTrigger>
+                                        </Event:Interaction.Triggers>
+                                    </telerik:RadGridView>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid Background="LightGray">
+                                    <StackPanel HorizontalAlignment="Left">
+                                        <TextBlock Margin="5,3,0,2" TextAlignment="Left" Text="参数列表"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                                <Border BorderBrush="LightGray" Grid.Row="1" BorderThickness="1" Background="#E4EbF4">
+                                    <telerik:RadMenu  HorizontalAlignment="Left" Background="#E4EbF4">
+                                        <telerik:RadMenuItem Header="添 加" Margin="5,0,0,0" Command="{Binding AddParameterCommand}">
+                                            <telerik:RadMenuItem.Icon>
+                                                <Image Source="../Images/add.png" />
+                                            </telerik:RadMenuItem.Icon>
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Header="编 辑" Command="{Binding EditParameterCommand}">
+                                            <telerik:RadMenuItem.Icon>
+                                                <Image Source="../Images/edit.png" />
+                                            </telerik:RadMenuItem.Icon>
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Header="删 除"  Command="{Binding DeleteParameterCommand}">
+                                            <telerik:RadMenuItem.Icon>
+                                                <Image Source="../Images/delete.png" />
+                                            </telerik:RadMenuItem.Icon>
+                                        </telerik:RadMenuItem>
+                                    </telerik:RadMenu>
+                                </Border>
+                                <Grid Grid.Row="2">
+                                    <telerik:RadGridView Grid.Row="1" FrozenColumnsSplitterVisibility="Collapsed" x:Name="DesignMethodParameterGridView" ItemsSource="{Binding CurrentDesignMethod.Parameters}" SelectedItem="{Binding CurrentDesignMethodParameter,Mode=TwoWay}"
+                     cmd:RowActivated.Command="{Binding ParameterRowActivatedCommand}" VerticalAlignment="Top" Height="auto" AutoGenerateColumns="False" IsFilteringAllowed="False" IsReadOnly="True" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" Margin="1">
+                                        <telerik:RadGridView.Resources>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Margin" Value="0" />
+                                                <Setter Property="Width" Value="Auto" />
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                            </Style>
+                                        </telerik:RadGridView.Resources>
+                                        <telerik:RadGridView.Columns>
+                                            <telerik:GridViewDataColumn Width="35" Header="选择">
+                                                <telerik:GridViewDataColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <CheckBox Margin="5,0,0,0" x:Name="cbx" IsChecked="{Binding IsChecked,Mode=TwoWay}" >
+                                                            <Event:Interaction.Triggers>
+                                                                <Event:EventTrigger EventName="Checked" SourceName="cbx">
+                                                                    <Event:InvokeCommandAction Command="{Binding DataContext.ParameterCheckedCommand,RelativeSource={RelativeSource FindAncestor,AncestorType=UserControl}}"/>
+                                                                </Event:EventTrigger>
+                                                                <Event:EventTrigger EventName="Unchecked" SourceName="cbx">
+                                                                    <Event:InvokeCommandAction Command="{Binding DataContext.ParameterUncheckedCommand,RelativeSource={RelativeSource FindAncestor,AncestorType=UserControl}}"/>
+                                                                </Event:EventTrigger>
+                                                            </Event:Interaction.Triggers>
+                                                        </CheckBox>
+                                                    </DataTemplate>
+                                                </telerik:GridViewDataColumn.CellTemplate>
+                                            </telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="参数名称" DataMemberBinding="{Binding ParameterName}"  MinWidth="190" />
+                                            <telerik:GridViewDataColumn Header="参数类型" DataMemberBinding="{Binding DataType}" MinWidth="190" />
+                                            <telerik:GridViewDataColumn Header="集合类型" DataMemberBinding="{Binding CollectionType}" MinWidth="100" />
+                                            <telerik:GridViewDataColumn Header="对象类型" DataMemberBinding="{Binding StructName}"  MinWidth="50"/>
+                                            <telerik:GridViewDataColumn Header="描述" DataMemberBinding="{Binding Description}" Width="*" />
+                                        </telerik:RadGridView.Columns>
+                                    </telerik:RadGridView>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </telerik:RadTabItem>
+                    <telerik:RadTabItem DropDownContent="类型信息" Header="类型信息" Background="#E4EbF4">
+                        <ContentControl Name="ClassViewContent" Content="{Binding ClassInfoView}" VerticalAlignment="Top" >
+                        </ContentControl>
+                    </telerik:RadTabItem>
+                </telerik:RadTabControl>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

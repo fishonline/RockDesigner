@@ -1,0 +1,87 @@
+﻿<Window x:Class="Rock.DesignerModule.Views.ParameterView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        Title="ParameterView" Height="350" Width="400" Icon="../Images/parameter.png"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="参数名" VerticalAlignment="Center"></TextBlock>
+            <TextBox Text="{Binding DesignMethodParameter.ParameterName}" Grid.Column="1"
+                     x:Name="txtParaName"/>
+        </Grid>
+
+        <Grid Margin="5" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="参数集合类型" VerticalAlignment="Center"></TextBlock>
+            <ComboBox ItemsSource="{Binding CollectionTypeSource}" 
+                      SelectedItem="{Binding DesignMethodParameter.CollectionType}"  Grid.Column="1" x:Name="comParaCollectionType"/>
+        </Grid>
+
+        <Grid Margin="5" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="参数类型" VerticalAlignment="Center"></TextBlock>
+            <ComboBox x:Name="comParaType" ItemsSource="{Binding DynTypeSource}" 
+                      SelectedItem="{Binding  DesignMethodParameter.DataType}"  Grid.Column="1">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged" SourceName="comParaType">
+                        <i:InvokeCommandAction  Command="{Binding DynTypeSelectionChangedCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
+        </Grid>
+
+        <Grid Margin="5" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="参数对象类型" VerticalAlignment="Center"></TextBlock>
+            <ComboBox ItemsSource="{Binding StructSource}" 
+                      IsEnabled="{Binding StructEnabled}" x:Name="comParaObjType"
+                      SelectedItem="{Binding  DesignMethodParameter.StructName}"  Grid.Column="1" IsTextSearchEnabled="True" StaysOpenOnEdit="True" IsEditable="True" />
+        </Grid>
+
+        <Grid Margin="5" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="描述" VerticalAlignment="Top"></TextBlock>
+            <TextBox Text="{Binding DesignMethodParameter.Description}"  Grid.Column="1" x:Name="txtDecription"  
+                     TextWrapping="Wrap" Height="120" />
+        </Grid>
+
+        <WrapPanel Grid.Row="5" HorizontalAlignment="Right" Margin="8,13">
+            <telerik:RadButton Content="保 存" MinWidth="60" MinHeight="30" Margin="5 0"  Click="btnAdd_Click"></telerik:RadButton>
+            <telerik:RadButton Content="取 消" MinWidth="60" MinHeight="30" Margin="5 0"  Click="btnCancel_Click"></telerik:RadButton>
+        </WrapPanel>
+
+
+    </Grid>
+</Window>

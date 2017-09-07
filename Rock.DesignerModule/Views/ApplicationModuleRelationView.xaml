@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="Rock.DesignerModule.Views.ApplicationModuleRelationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:Event="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"             
+             xmlns:cmd="clr-namespace:Rock.DesignerModule.Models" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="900">
+    <UserControl.Resources>
+        <Style x:Key="HeaderTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="11" />
+            <Setter Property="Foreground" Value="#FF686868" />
+        </Style>
+        <DataTemplate x:Key="ListBoxItemTemplate">
+            <Grid>
+                <TextBlock  Style="{StaticResource HeaderTextBlockStyle}" Text="{Binding ModuleName}"  Margin="10 0 0 0" 
+                           HorizontalAlignment="Left" />
+            </Grid>
+        </DataTemplate>
+        <Style x:Key="DraggableListBoxItem" TargetType="telerik:RadListBoxItem">
+            <Setter Property="telerik:DragDropManager.AllowCapturedDrag" Value="True" />
+        </Style>
+    </UserControl.Resources>    
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="5">
+            <telerik:RadGridView RowIndicatorVisibility="Collapsed" ShowGroupPanel="False" FrozenColumnsSplitterVisibility="Collapsed"
+                                 IsFilteringAllowed="False" IsReadOnly="True" ItemsSource="{Binding ApplicationSource}" 
+                                 SelectedItem="{Binding SelectedApplication}"  AutoGenerateColumns="False"
+                                 x:Name="radGridView"
+                                 >
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Header="ID" Width="80" DataMemberBinding="{Binding ApplicationID}" IsVisible="False"/>
+                    <telerik:GridViewDataColumn Header="名称" Width="280" DataMemberBinding="{Binding ApplicationName}"/>
+                    <telerik:GridViewDataColumn Header="说明" Width="*" DataMemberBinding="{Binding Description}"/>
+                    <telerik:GridViewDataColumn Header="版本" Width="80" DataMemberBinding="{Binding Version}"/>
+                </telerik:RadGridView.Columns>
+                <Event:Interaction.Triggers>
+                    <Event:EventTrigger EventName="SelectionChanged" SourceName="radGridView">
+                        <Event:InvokeCommandAction  Command="{Binding SelectionChangedCommand}"/>
+                    </Event:EventTrigger>
+                </Event:Interaction.Triggers>
+            </telerik:RadGridView>
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <telerik:RadListBox Margin="5" ItemsSource="{Binding AddedModuleList}" x:Name="listBox1"
+				ItemTemplate="{StaticResource ListBoxItemTemplate}" HorizontalAlignment="Stretch"  AllowDrop="True"
+                            VerticalAlignment="Stretch"  
+                            ItemContainerStyle="{StaticResource DraggableListBoxItem}">
+                    <telerik:RadListBox.DragVisualProvider>
+                        <telerik:ScreenshotDragVisualProvider />
+                    </telerik:RadListBox.DragVisualProvider>
+                    <telerik:RadListBox.DragDropBehavior>
+                        <telerik:ListBoxDragDropBehavior />
+                    </telerik:RadListBox.DragDropBehavior>
+                </telerik:RadListBox>
+            </Grid>
+            <Grid Grid.Column="1">                
+                <telerik:RadListBox Margin="5" ItemsSource="{Binding ModuleList}" AllowDrop="True" 
+							ItemTemplate="{StaticResource ListBoxItemTemplate}"  x:Name="listBox2"  
+                            ItemContainerStyle="{StaticResource DraggableListBoxItem}"  >
+                    <telerik:RadListBox.DragVisualProvider>
+                        <telerik:ScreenshotDragVisualProvider  />
+                    </telerik:RadListBox.DragVisualProvider>
+                    <telerik:RadListBox.DragDropBehavior>
+                        <telerik:ListBoxDragDropBehavior  />
+                    </telerik:RadListBox.DragDropBehavior>
+                </telerik:RadListBox>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
